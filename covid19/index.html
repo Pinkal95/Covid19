@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="Stylesheet" href="css/mycss.css"/>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>    
+    <script src="js/myscript.js"></script>
+    
+</head>
+<body ng-app="MyApp" ng-controller="MyCtrl">
+    <div class="container">
+    <div class="jumbotron py-3">
+        <h1 class="text-center">
+            {{title}}
+        </h1>
+        <p class="pt-3"> 
+            Czech Republic has 1,646,981 confirmed cases (cumulative), 1,653,099 recoveries, 29,913 deaths, 7,005,859 PCR tests performed, and 4,139,123 vaccines administered.
+            Due to the crisis measures issued by the Government of the Czech Republic, it is not possible for U.S. citizens to travel to the Czech Republic for the purpose of tourism or visiting friends. 
+            Facemask requirements: FFP2 or N95 facemasks are required to be worn on all forms of public transportation and indoor spaces.  They are no longer required in outdoor public areas where a safe social distance can be maintained but will be required in crowded spaces.  Textile or other homemade masks will no longer be permitted.
+        </p>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="card bg-warning text-white">
+                <div class="card-body">
+                <h3>confirmed cases</h3>   
+                <h3>{{all_data.confirmed.value}}</h3> 
+                </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                    <h3>Recoverd cases</h3> 
+                    <h3>{{all_data.recovered.value}}</h3>    
+                    </div>
+                    </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-danger text-white">
+                    <div class="card-body">
+                    <h3>Death cases</h3>    
+                    <h3>{{all_data.deaths.value}}</h3> 
+                    </div>
+                    </div>
+            </div>
+        </div>
+        <input 
+        type="text" 
+        class="form-control mt-4" 
+        placeholder="enter countery here"
+        ng-model="c"
+        ng-change="get_c_data()"
+        />
+        
+        <h1 class="text-center mt-4 text-uppercase">{{c}}</h1>
+        <div class="row text-center mt-4" ng-if="c_data">
+            <div class="col-md-4">
+                <div class="card bg-warning text-white">
+                <div class="card-body">
+                <h3>confirmed cases</h3>   
+                <h3>{{c_data.confirmed.value}}</h3> 
+                </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                    <h3>Recoverd cases</h3> 
+                    <h3>{{c_data.recovered.value}}</h3>    
+                    </div>
+                    </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-danger text-white">
+                    <div class="card-body">
+                    <h3>Death cases</h3>    
+                    <h3>{{c_data.deaths.value}}</h3> 
+                    </div>
+                    </div>
+            </div>
+        </div>
+  
+
+    </div>
+    </div>
+</body>
+</html>
